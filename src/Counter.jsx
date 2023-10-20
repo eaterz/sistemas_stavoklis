@@ -3,12 +3,13 @@ import "./Counter.css";
 function Counter() {
   const [number, setNumber] = useState(0);
   const [multiplier, setMultiplier] = useState(1);
+  const [delta, setDelta] = useState(1);
 
-  function addOne() {
-    setNumber(number + 1);
+  function addDelta() {
+    setNumber(number + parseInt(delta));
   }
-  function und() {
-    setNumber(number - 1);
+  function minusDelta() {
+    setNumber(number - parseInt(delta));
   }
   function multiply() {
     setNumber(number * multiplier);
@@ -16,23 +17,41 @@ function Counter() {
   function handleChange(reiz) {
     setMultiplier(reiz.target.value);
   }
+  function handleDelta(event) {
+    setDelta(event.target.value);
+  }
+
   return (
     <div>
+      <input
+        id="numberInput"
+        type="number"
+        value={delta}
+        onChange={handleDelta}
+      />
+
       <div className="row">
-        <button className="buttonPlus" onClick={addOne}>
-          + 1
+        <button className="buttonPlus" onClick={addDelta}>
+          + {delta}
         </button>
-        <button className="buttonMinus" onClick={und}>
-          - 1
+        <button className="buttonMinus" onClick={minusDelta}>
+          - {delta}
         </button>
       </div>
 
       <h1>{number}</h1>
 
-      <input type="number" value={multiplier} onChange={handleChange} />
+      <input
+        id="numberInput"
+        type="number"
+        value={multiplier}
+        onChange={handleChange}
+      />
+
       <button className="buttonReiz" onClick={multiply}>
-        *
+        *{multiplier}
       </button>
+      <div className="space"></div>
     </div>
   );
 }
