@@ -89,6 +89,9 @@
   transform: scale(1.05) rotate(-1deg);
 }
 h1 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
   font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
 }
 .row {
@@ -96,10 +99,12 @@ h1 {
   grid-column: auto;
   margin: 10px;
   gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 #numberInput {
-  width: 150px;
+  width: 200px;
   height: 40px;
   font-size: 16px;
   border: 2px solid #3498db;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Counter.css";
-function Counter() {
-  const [number, setNumber] = useState(0);
+function Counter(props) {
+  const [number, setNumber] = useState(props.number);
   const [multiplier, setMultiplier] = useState(1);
   const [delta, setDelta] = useState(1);
 
@@ -23,34 +23,37 @@ function Counter() {
 
   return (
     <div>
-      <input
-        id="numberInput"
-        type="number"
-        value={delta}
-        onChange={handleDelta}
-      />
+      <div className="kvad">
+        <input
+          id="numberInput"
+          type="number"
+          value={delta}
+          onChange={handleDelta}
+        />
 
-      <div className="row">
-        <button className="buttonPlus" onClick={addDelta}>
-          + {delta}
-        </button>
-        <button className="buttonMinus" onClick={minusDelta}>
-          - {delta}
-        </button>
+        <div className="row">
+          <button className="buttonPlus" onClick={addDelta}>
+            + {delta}
+          </button>
+          <button className="buttonMinus" onClick={minusDelta}>
+            - {delta}
+          </button>
+        </div>
+
+        <h1>{number}</h1>
+
+        <input
+          id="numberInput"
+          type="number"
+          value={multiplier}
+          onChange={handleChange}
+        />
+        <div className="row">
+          <button className="buttonReiz" onClick={multiply}>
+            *{multiplier}
+          </button>
+        </div>
       </div>
-
-      <h1>{number}</h1>
-
-      <input
-        id="numberInput"
-        type="number"
-        value={multiplier}
-        onChange={handleChange}
-      />
-
-      <button className="buttonReiz" onClick={multiply}>
-        *{multiplier}
-      </button>
       <div className="space"></div>
     </div>
   );
